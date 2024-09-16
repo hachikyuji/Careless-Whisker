@@ -19,6 +19,8 @@ In the terminal, type "pip install -r requirements.txt"
 
 Make sure to edit the DATABASES inside settings.py according to your own local database
 
+You can check this link on the step by step process how to connect the database: https://studygyaan.com/django/how-to-connect-postgresql-database-in-django-project
+
 ## To run the app:
 
 Make sure to put this line in your .env file (inside /frontend): VITE_API_URL="http://127.0.0.1:8000"
