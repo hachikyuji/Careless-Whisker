@@ -2,9 +2,29 @@
 
 Django-React Web Application
 
+## Initial Setup
+
+### In the terminal:
+
+Type: "python3 -m venv env"
+For Mac:
+Then type: "source env/bin/activate"
+For Windows: "env/Scripts/activate.bat"
+
+### Inside the repo look for the requirements.txt file
+
+In the terminal, type "pip install -r requirements.txt"
+
+### Database Deployment
+
+Make sure to edit the DATABASES inside settings.py according to your own local database
+
+## To run the app:
+
 Make sure to put this line in your .env file (inside /frontend): VITE_API_URL="http://127.0.0.1:8000"
 
-In the terminal:
+### In the terminal:
+
 Go to /(root-folder)/frontend and type "npm run dev"
 
 Split/Add a new terminal and change the terminal directory to /(root-folder)/backend and type "python manage.py runserver"
