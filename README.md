@@ -7,11 +7,11 @@ Django-React Web Application
 ### In the terminal:
 
 Type: "python3 -m venv env"
-For Mac:
-Then type: "source env/bin/activate"
+Then type:
+For Mac: "source env/bin/activate"
 For Windows: "env/Scripts/activate.bat"
 
-### Inside the repo look for the requirements.txt file
+### OPTIONAL: Inside the repo look for the requirements.txt file (If you have problems with dependencies)
 
 In the terminal, type "pip install -r requirements.txt"
 
