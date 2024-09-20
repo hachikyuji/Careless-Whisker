@@ -1,10 +1,10 @@
-function Register() {
+function Welcome() {
   return (
     <div>
-      <h1>Register Page</h1>
+      <h1>Welcome Page.</h1>
       <h2>Put the code inside the return.</h2>
     </div>
   );
 }
 
-export default Register;
+export default Welcome;

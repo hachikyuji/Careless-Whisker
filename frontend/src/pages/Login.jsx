@@ -1,7 +1,10 @@
-import Form from "../components/Form"
-
 function Login() {
-    return <Form route="/api/token/" method="login" />
+  return (
+    <div>
+      <h1>Login Page</h1>
+      <h2>Put the code inside the return.</h2>
+    </div>
+  );
 }
 
-export default Login
+export default Login;
