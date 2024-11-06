@@ -131,8 +131,9 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 40px 20px;
+  padding: 5px 20px;
   background-color: white;
+  margin-top: -40px;
 }
 
 .form-logo {
@@ -151,12 +152,12 @@ body {
   margin-top: 20px;
   padding: 20px;
   border: 2px solid #ddd;
-  border-radius: 16px;
+  border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .input-field {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .input-field label {
@@ -197,8 +198,8 @@ body {
 }
 
 .sign-up {
-  margin-top: 10px;
   text-align: center;
+  padding-bottom: 155px;
 }
 
 .sign-up-link {
@@ -221,4 +222,32 @@ body {
   .login-right {
     width: 100%;
   }
+}
+
+/* Register  CSS */
+
+.register-page {
+  background-image: url("../assets/register/regdogpng.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.log-in {
+  text-align: center;
+  padding-bottom: 65px;
+}
+
+.log-in-link {
+  color: blue;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.log-in-link:hover {
+  color: #555;
 }

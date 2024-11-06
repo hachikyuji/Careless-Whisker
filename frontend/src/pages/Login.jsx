@@ -5,6 +5,7 @@ import logoImg from "../assets/login/logo.png";
 import api from "../api";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 import LoadingIndicator from "../components/LoadingIndicator";
+import Header from "../components/IntroHeader";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -14,7 +15,7 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Start loading when the form is submitted
+    setLoading(true);
 
     try {
       const res = await api.post("/api/token/", { username, password });
@@ -24,26 +25,13 @@ function Login() {
     } catch (error) {
       alert("Login failed. Please try again.");
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false); 
     }
   };
 
   return (
     <div className="login-page">
-      <header className="header">
-        <div className="header-left">
-          <img className="logo" src={logoImg} alt="Logo" />
-          <button className="nav-button">Our Mission</button>
-          <button className="nav-button">Team</button>
-          <button className="nav-button">Services</button>
-        </div>
-
-        <div className="header-center"></div>
-
-        <div className="header-right">
-          <button className="schedule-now-btn">Schedule Now</button>
-        </div>
-      </header>
+      <Header />
 
       <div className="login-content">
         <div className="login-left">
