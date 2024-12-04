@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap');
+
 *,
 *::before,
 *::after {
@@ -16,6 +18,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  height: fit-content;
   background-color: #000;
   z-index: 1000;
   display: flex;
@@ -39,17 +42,17 @@ body {
 .header-center {
   display: flex;
   justify-content: center;
-  flex-grow: 1;
+
 }
 
 .nav-button {
   background: none;
   color: white;
   border: none;
-  font-size: 18px;
+  font-size: medium;
   cursor: pointer;
   margin: 0 15px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Montserrat";
   transition: color 0.3s ease;
 }
 
@@ -60,22 +63,31 @@ body {
 .header-right {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .schedule-now-btn {
   background-color: black;
   color: white;
   border: 2px solid white;
-  padding: 8px 16px;
-  font-size: 16px;
+  padding: 8px 16px !important; 
+  font-size: 16px !important;
   cursor: pointer;
-  font-family: "Poppins", sans-serif;
+  font-family: "Montserrat";
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .schedule-now-btn:hover {
   background-color: #555;
   color: #fff;
+}
+
+.btn-log-in-link{
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-family: "Montserrat";
+  font-size: small;
 }
 
 .login-page {
@@ -133,15 +145,17 @@ body {
   align-items: center;
   padding: 5px 20px;
   background-color: white;
-  margin-top: -40px;
+  margin-top: -10px;
 }
 
 .form-logo {
   margin-bottom: 5px;
+  border-radius: 10px;
+  margin-top: 120px;
 }
 
 .logo-top {
-  margin-top: 120px;
+  margin-top: 20px;
   height: 130px;
   width: auto;
 }
@@ -163,14 +177,15 @@ body {
 .input-field label {
   display: block;
   margin-bottom: 5px;
-  font-size: 16px;
+  font-size: 14px;
+  font-family: "Montserrat";
 }
 
 .input-field input {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
-  font-size: 16px;
+  font-size: 12px;
   border-radius: 4px;
 }
 
@@ -180,7 +195,7 @@ body {
   background-color: #000;
   color: #fff;
   border: none;
-  font-size: 18px;
+  font-size: small;
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s ease;
@@ -200,6 +215,9 @@ body {
 .sign-up {
   text-align: center;
   padding-bottom: 155px;
+  font-family: "Montserrat";
+  font-size: smaller;
+  padding-top: 10px;
 }
 
 .sign-up-link {
@@ -239,7 +257,11 @@ body {
 
 .log-in {
   text-align: center;
+  padding-top: 10px;
   padding-bottom: 65px;
+  font-family: "Montserrat";
+  font-size: smaller;
+
 }
 
 .log-in-link {
@@ -250,4 +272,128 @@ body {
 
 .log-in-link:hover {
   color: #555;
+}
+
+
+.profile-btn {
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  padding: 2px 4px !important; 
+  font-size: 16px !important;
+  cursor: pointer;
+  font-family: "Montserrat";
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.profile-btn:hover {
+  background-color: #0056b3;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 70%;
+  right: 55px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.dropdown-menu button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: white;
+  background-color: black;
+}
+
+.dropdown-menu button svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  fill: white;
+}
+
+.dropdown-menu button:hover {
+  background-color: #777;
+}
+
+.header-notif {
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  padding: 1px 2px !important; 
+  font-size: 16px !important;
+  cursor: pointer;
+  font-family: "Montserrat";
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header-notif button {
+  display: flex;
+  align-items: center;
+  width: 40px;
+  height: 30px;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: white;
+  background-color: black;
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.header-notif button svg {
+  width: 20px;
+  height: 20px;
+  margin-left: 3px;
+  fill: white;
+}
+
+.profile-header-right {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.notif-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  color: black;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  z-index: 1000;
+  max-height: auto;
+  max-width: 300px;
+  margin-right: 90px;
+  margin-top: 20px;
+}
+
+.notif-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.notif-dropdown li {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.notif-btn-red {
+  background-color: red; 
+  color: white;
 }

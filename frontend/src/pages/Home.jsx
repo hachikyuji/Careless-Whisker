@@ -1,9 +1,27 @@
 import { useState, useEffect } from "react";
-import api from "../api";
-import Note from "../components/Note";
 import "../styles/Home.css";
+import React from "react";
+import Sidebar from "../components/Sidebar";
+import UserHeader from "../components/UserHeader";
 
 function Home() {
+  return (
+    <div className="home-page">
+      <Sidebar />
+      <UserHeader />
+
+      {/*
+        <button>
+           <a href="/logout">Log Out</a> 
+        </button>
+      */}
+    </div>
+  );
+}
+
+export default Home;
+
+/*
   const [notes, setNotes] = useState([]);
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
@@ -49,9 +67,7 @@ function Home() {
       .catch((err) => alert(err));
   };
 
-  return (
-    <div>
-      <div>
+        <div>
         <h2>Notes</h2>
         {notes.map((note) => (
           <Note note={note} onDelete={deleteNote} key={note.id} />
@@ -81,8 +97,4 @@ function Home() {
         <br />
         <input type="submit" value="Submit"></input>
       </form>
-    </div>
-  );
-}
-
-export default Home;
+*/

@@ -33,10 +33,18 @@
   }
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Oswald:wght@200..700&display=swap');
+
 .card {
   padding: 2em;
 }
 
 .read-the-docs {
   color: #888;
+}
+
+body {
+  font-family: "Bungee Inline", serif;
+  font-weight: 400;
+  font-style: normal;
 }
