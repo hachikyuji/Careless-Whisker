@@ -25,7 +25,20 @@
 
 .sidebar li {
   padding: 10px 0;
+  align-items: center;
+  padding: 10px 0;
+  margin: 10px 0;
   border-bottom: 1px solid #f1f1f1;
+}
+
+.sidebar li svg {
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.sidebar-links a {
+  display: flex;
+  align-items: center;
 }
 
 /*

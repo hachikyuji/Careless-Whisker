@@ -142,8 +142,6 @@ function ScheduleService() {
         }, 3000);
         } catch (error) {
             alert(error);
-        } finally {
-
         }
 
         if (modal1) {
@@ -182,7 +180,7 @@ function ScheduleService() {
                 <div className="schedpage-right">
                     <div>
                         <p><strong>Selected Date:</strong> {formData.scheduled_date || "Not selected yet"}</p>
-                        <p><strong>Selected Time:</strong> {formData.scheduled_time || "Not selected yet"}</p>
+                        <p><strong>Selected Time:</strong>: {formData.scheduled_time || "Not selected yet"}</p>
                     </div>
 
                     <form className="sched-form" onSubmit={handleSubmit}>
@@ -203,22 +201,32 @@ function ScheduleService() {
                             <p></p>
                         </div>
                         <label><strong>Select a service:</strong> </label>
-                        <select name="service"
-                            value={formData.service}
-                            onChange={handleChange}
-                            required
-                        >
+                        <select name="service" value={formData.service} onChange={handleChange} required>
                             <option value="">-- Select a Service --</option>
-                            <option value="Grooming">Pet Groomning</option>
-                            <option value="Vaccination">Pet Vaccination</option>
-                            <option value="Check-Up">Pet Check Up</option>
-                            <option value="Surgery">Pet Surgery</option>
-                        </select>
+                            <option value="Grooming" title="Professional grooming for your pet, lasting about 1 hour.">
+                                Pet Grooming
+                            </option>
+                            <option value="Vaccination" title="Vaccination services to protect your pet, approximately 30 minutes.">
+                                Pet Vaccination
+                            </option>
+                            <option value="Check-Up" title="General health check-up for your pet, around 30 minutes.">
+                                Pet Check-Up
+                            </option>
+                            <option value="Surgery" title="Specialized surgical procedures, schedule based on your doctor's suggestions.">
+                                Pet Surgery
+                            </option>
+                            </select>
                         <div>
                         <p><strong>Approximate End Time:</strong> {formData.end_time || ""}</p>
                         </div>
                         
-                        <button type="submit">Submit</button>
+                        <div className="loading-container">
+                            {loading && <LoadingIndicator />}
+                        </div>
+
+                        <button type="submit">
+                            Submit
+                        </button>
                     </form>
                 </div>
                 

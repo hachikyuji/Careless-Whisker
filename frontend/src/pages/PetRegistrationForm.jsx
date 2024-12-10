@@ -50,7 +50,7 @@ function PetRegistrationForm() {
 
             const response = await axios.post("http://127.0.0.1:8000/api/register-pet/", formData, {
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem("access")}`,
+                    Authorization: `Bearer ${token}`, 
                     "Content-Type": "application/json"
                 }
             });
@@ -66,9 +66,7 @@ function PetRegistrationForm() {
         } catch (error) {
             // Handle error
             alert(error);
-        } finally {
-            setLoading(false);
-        }
+        } 
 
         if (modal){
             document.body.classList.add('active-modal')
@@ -165,13 +163,14 @@ function PetRegistrationForm() {
                         <div>
                             <label>Pet Weight: (kg)</label>
                             <input
-                                type="text"
+                                type="number"
                                 name="pet_weight"
                                 value={formData.pet_weight}
                                 onChange={handleChange}
                             />
                         </div>
-                        <button type="submit" disabled={loading}>
+                        
+                        <button type="submit">
                             {loading ? "Submitting..." : "Register Pet"}
                         </button>
                     </form>
@@ -183,12 +182,10 @@ function PetRegistrationForm() {
                     <div onClick={toggleModal} className="overlay"></div>
                         <div className="modal-content">
                             <h2>Pet registration successful!</h2>
-                            <p>You may now schedule your appointments.</p>
-
+                            <p>Redirecting you to your pets list...</p>
                             <div className="loading-container">
-                            {loading && <LoadingIndicator />}
+                                {loading && <LoadingIndicator />}
                             </div>
-
                     </div>
                 </div>
             )}
