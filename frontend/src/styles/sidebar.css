@@ -146,7 +146,11 @@
     cursor: pointer;
     font-family: "Montserrat";
   }
-
+  
+  .sb-dropdown-btn svg {
+    flex-shrink: 0;
+  }
+  
   @keyframes slideDown {
     from {
       opacity: 0;

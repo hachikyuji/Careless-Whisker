@@ -66,7 +66,7 @@ function Header() {
     return (
         <header className="header">
             <div className="header-left">
-                <a href="/" className="img-link">
+                <a href="/admin-home" className="img-link">
                     <img className="logo" src={logoImg} alt="Logo" />
                 </a>
             </div>

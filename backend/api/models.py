@@ -23,6 +23,9 @@ class Profile(models.Model):
     onboarding_complete = models.BooleanField(default=False)
     account_type = models.CharField(max_length=10, null=True, blank=True, default="client")
     
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+    
 class Pets(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="pets")
     pet_name = models.CharField(max_length=30, null=True, blank=True)
@@ -45,7 +48,7 @@ class ScheduledServices(models.Model):
     scheduled_date = models.DateField(null=True, blank=True)
     scheduled_time = models.TimeField(default="00:00:00", null=True, blank=True)
     end_time = models.TimeField(default="00:00:00", null=True, blank=True)
-    status = models.BooleanField(default=False)
+    status = models.BooleanField(default=False, null=True)
     cancelled = models.BooleanField(default=False)
     finished = models.BooleanField(default=False)
 

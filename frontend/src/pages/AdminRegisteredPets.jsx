@@ -98,12 +98,15 @@ function AdminRegisteredPets() {
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Pet Name</th>
-                                    <th>Pet Type</th>
-                                    <th>Pet Breed</th>
-                                    <th>Pet Sex</th>
-                                    <th>Pet Age</th>
-                                    <th>Pet Birthday</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Breed</th>
+                                    <th>Sex</th>
+                                    <th>Age</th>
+                                    <th>Birthday</th>
+                                    <th>Kg</th>
+                                    <th>Cond.</th>
+                                    <th>Health</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -120,6 +123,9 @@ function AdminRegisteredPets() {
                                         <td>{pet.pet_sex}</td>
                                         <td>{pet.pet_age}</td>
                                         <td>{pet.pet_birthday}</td>
+                                        <td>{pet.pet_weight}</td>
+                                        <td>{pet.pet_condition}</td>
+                                        <td>{pet.pet_health}</td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -135,6 +141,7 @@ function AdminRegisteredPets() {
 
             {selectedPet && (
                 <div className="modal">
+                    <div className="overlay"></div>
                     <div className="admin-unfinished-modal-content">
                         <h2>Update Pet Condition: {selectedPet.pet_name}</h2>
                         <form>

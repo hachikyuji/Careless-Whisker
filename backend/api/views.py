@@ -133,7 +133,7 @@ class UpdateServiceStatusView(APIView):
                 return Response({"message": "Service accepted, and email sent."}, status=status.HTTP_200_OK)
 
             elif action == "reject":
-                service.status = False
+                service.status = None
                 service.save()
                 
                 send_mail(
@@ -143,6 +143,13 @@ class UpdateServiceStatusView(APIView):
                     [user_email],
                     fail_silently=False,
                 )
+                
+                Notifications.objects.create(
+                    user=profile.user,
+                    title="Appointment Rejected",
+                    message="Your appointment has been rejected.",
+                )
+                
                 return Response({"message": "Service rejected, and email sent."}, status=status.HTTP_200_OK)
 
             return Response({"error": "Invalid action."}, status=status.HTTP_400_BAD_REQUEST)

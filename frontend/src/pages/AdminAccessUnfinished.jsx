@@ -2,9 +2,13 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import AdminSidebar from "../components/AdminSidebar";
 import "../styles/adminacc.css";
+import LoadingIndicator from "../components/LoadingIndicator";
+import { useNavigate } from "react-router-dom";
 
 function AdminUnifinishedAppointments() {
     const [appointments, setAppointments] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     useEffect( () => {
         const fetchScheds = async() => {
@@ -47,6 +51,8 @@ function AdminUnifinishedAppointments() {
     };
 
     const handleSubmit = async () => {
+        setLoading(true);
+
         if (!selectedPet) return;
             try {
                 const response = await axios.put(
@@ -63,6 +69,10 @@ function AdminUnifinishedAppointments() {
                 console.log("Form Values: ", formValues);
                 console.log("Selected Pet: ", selectedPet);
                 console.log('Response:', response.data);
+                setTimeout(() => {
+                    setLoading(false);
+                    navigate("/admin-pets")
+                }, 2000)
             } catch (error) {
                 alert("Error updating pet details: " + error.message);
             }
@@ -118,12 +128,13 @@ function AdminUnifinishedAppointments() {
             ) : (
                 <div className="admin-apo-no-appointments">
                     <h2>No Upcoming Services</h2>
-                    <p>There are currently no upcoming appointments.</p>
+                    <p>There are currently no ongoing appointments.</p>
                 </div>
             )}
 
             {selectedPet && (
                 <div className="modal">
+                    <div className="overlay"></div>
                     <div className="admin-unfinished-modal-content">
                         <h2>Update Pet Condition: {selectedPet.pet_name}</h2>
                         <form>
@@ -155,6 +166,11 @@ function AdminUnifinishedAppointments() {
                                 />
                             </label>
                         </form>
+
+                        <div className="loading-container">
+                            {loading && <LoadingIndicator />}
+                        </div>
+
                         <div className="modal-actions">
                             <button onClick={handleSubmit}>Save</button>
                             <button onClick={handleCloseModal}>Cancel</button>
