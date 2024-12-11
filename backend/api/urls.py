@@ -23,5 +23,6 @@ urlpatterns = [
     path("admin-access-unfinished/", views.AccessUnfinishedSchedulesView.as_view(), name="admin-access-unfinished"),
     path("pets/update/<str:pet_name>/", views.UpdatePetDetailsView.as_view(), name="update-pet-details-by-name"),
     path("admin-registered-pets/", views.AdminAccessRegisteredPetsView.as_view(), name="admin-registered-pets"),
-    path("admin-registered-pets/update/<str:pet_name>/", views.AdminUpdateRegisteredPestView.as_view(), name="admin-registered-pets-update")
+    path("admin-registered-pets/update/<str:pet_name>/", views.AdminUpdateRegisteredPestView.as_view(), name="admin-registered-pets-update"),
+    path("user-profile/", views.UserProfileView.as_view(), name="user-profile")
 ]

@@ -173,7 +173,19 @@ class AdminAccessUpcomingScheduledServicesView(APIView):
         scheduled_services = ScheduledServices.objects.filter(status=True)
         serializer = ScheduleServiceSerializer(scheduled_services, many=True)
         return Response(serializer.data)
+
+class UserProfileView(APIView):
+    permission_classes = [IsAuthenticated]
     
+    def get(self, request):
+        user = request.user
+        try:
+            profile = Profile.objects.get(user=user)
+            serializer = ProfileSerializer(profile)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except:
+            return Response({"error": "Profile not found"}, status=status.HTTP_404_NOT_FOUND)
+
 class CancelAppointmentView(APIView):
     permission_classes = [IsAuthenticated]
     

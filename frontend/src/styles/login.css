@@ -397,3 +397,14 @@ body {
   background-color: red; 
   color: white;
 }
+
+.close-notif-btn {
+  background-color: black;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+}
+
+.notif-date-span {
+  font-size: 14px;
+}
