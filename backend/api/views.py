@@ -178,13 +178,9 @@ class UserProfileView(APIView):
     permission_classes = [IsAuthenticated]
     
     def get(self, request):
-        user = request.user
-        try:
-            profile = Profile.objects.get(user=user)
-            serializer = ProfileSerializer(profile)
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        except:
-            return Response({"error": "Profile not found"}, status=status.HTTP_404_NOT_FOUND)
+        profiles = Profile.objects.all() 
+        serializer = ProfileSerializer(profiles, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 class CancelAppointmentView(APIView):
     permission_classes = [IsAuthenticated]
@@ -355,6 +351,17 @@ class AdminAccessRegisteredPetsView(APIView):
             return Response(serializer.data)
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+class AdminAccessUserProfilesView(APIView):
+    permission_classes = [IsAuthenticated]
+    
+    def get(self):
+        try:
+            profiles = Profile.objects.all()
+            serializer = ProfileSerializer(profiles, many=True)
+            return Response(serializer.data)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
             
 class AdminUpdateRegisteredPestView(APIView):
     permission_classes = [IsAuthenticated]
@@ -369,4 +376,29 @@ class AdminUpdateRegisteredPestView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-            
+
+class AdminUpdateProfileView(APIView):
+    permission_classes = [IsAuthenticated]
+    
+    def put(self, request, first_name):
+        profile = Profile.objects.get(first_name=first_name)
+        serializer = ProfileSerializer(profile, data=request.data, partial=True)
+        
+        if serializer.is_valid():
+            updated_profile = serializer.save()
+            logging.debug(f"Updated pet data: {updated_profile}")
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+class HeaderUserProfileView(APIView):
+    permission_classes = [IsAuthenticated]
+    
+    def get(self, request):
+        user = request.user
+        try:
+            profile = Profile.objects.get(user=user)
+            serializer = ProfileSerializer(profile)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except:
+            return Response({"error": "Profile not found"}, status=status.HTTP_404_NOT_FOUND)

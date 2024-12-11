@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap');
 
-.admin-pets-page {
+.admin-profiles-page {
     display: flex;
     flex-direction: column;
     background-color: #1a1a1a;
@@ -13,7 +13,7 @@
     background-position: center;
 }
 
-.admin-pets-main-text {
+.admin-profiles-main-text {
     color: white;
     font-size: 40px;
     text-align: justify;
@@ -31,7 +31,7 @@
     margin-left: 270px;
 }
 
-.admin-pets-no-appointments {
+.admin-profiles-no-appointments {
     text-align: center;
     color: white;
     font-family: "Montserrat", sans-serif;
@@ -43,12 +43,12 @@
     margin-left: 300px;
 }
 
-.admin-pets-no-appointments a {
+.admin-profiles-no-appointments a {
     text-decoration: none;
     color: blue;
 }
 
-.admin-pets-table-container {
+.admin-profiles-table-container {
     width: 100%;
     max-width: 770px;
     margin: 20px auto;
@@ -59,34 +59,34 @@
     margin-right: 570px;
 }
 
-.admin-pets-table {
+.admin-profiles-table {
     word-break: 100%;
     border-collapse: collapse;
     font-family: "Montserrat", sans-serif;
 }
 
-.admin-pets-table th, .admin-pets-table td {
+.admin-profiles-table th, .admin-profiles-table td {
     padding: 12px 15px;
     text-align: center;
     border-bottom: 1px solid #ddd;
 }
 
-.admin-pets-table th {
+.admin-profiles-table th {
     background-color: #2E2E2E ;
     color: white;
     font-size: 15px;
     text-transform: uppercase;
 }
 
-.admin-pets-table tr:hover {
+.admin-profiles-table tr:hover {
     background-color: #add8e6;
 }
 
-.admin-pets-table tr:nth-child(even) {
+.admin-profiles-table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-.admin-pets-table td {
+.admin-profiles-table td {
     font-size: 14px;
 }
 
@@ -94,12 +94,12 @@
     margin-right: 3px; 
 }
 
-.admin-pets-btn {
+.admin-profiles-btn {
     background-color: #2E2E2E;
     padding: 2px 3px;
 }
 
-.admin-pets-modal-content {
+.admin-profiles-modal-content {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -115,7 +115,7 @@
     align-items: center;
 }
 
-.admin-pets-modal-content form {
+.admin-profiles-modal-content form {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -125,17 +125,17 @@
     align-items: center;
 }
 
-.admin-pets-modal-content label {
+.admin-profiles-modal-content label {
     font-weight: bold;
     padding: 5px;
 }
 
-.admin-pets-modal-content input {
+.admin-profiles-modal-content input {
     margin-top: 5px;
     font-family: "Montserrat", sans-serif;
 }
 
-.admin-pets-modal, .admin-pets-overlay {
+.admin-profiles-modal, .admin-profiles-overlay {
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -145,11 +145,11 @@
     position: fixed;
 }
 
-.admin-pets-overlay {
+.admin-profiles-overlay {
     background: rgba(49,49,49,0.8);
 }
 
-.admin-pets-modal-content {
+.admin-profiles-modal-content {
     position: absolute;
     top: 50%;
     left: 50%;

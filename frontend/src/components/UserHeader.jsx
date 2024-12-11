@@ -234,6 +234,7 @@ function UserHeader() {
                                     <p><strong>Email:</strong> {userProfile.email}</p>
                                     <p><strong>Mobile No.:</strong> {userProfile.mobile_no}</p>
                                     <p><strong>Onboarding Status:</strong> {userProfile.onboarding_complete ? 'Finished' : 'Not Finished'}</p>
+                                    <p className="profile-txt">Contact an admin to update your details via walk-in or email! <br/> <strong>carelesswhisker1453@gmail.com</strong></p>
                                 </div>
                             )}
                             <button className="close-notif-btn" onClick={toggleProfileModal}>Close</button>

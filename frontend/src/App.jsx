@@ -18,6 +18,7 @@ import UpcomingAppointments from "./pages/UpcomingAppointments";
 import AdminUpcomingAppointments from "./pages/AdminUpcomingAppointments";
 import AdminUnfinishedAppointments from "./pages/AdminAccessUnfinished";
 import AdminRegisteredPets from "./pages/AdminRegisteredPets";
+import AdminProfiles from "./pages/AdminProfiles";
 
 function Logout() {
   localStorage.clear();
@@ -130,6 +131,15 @@ function App() {
           element={
             <ProtectedRoute>
               <AdminRegisteredPets />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route 
+          path="/admin-profiles"
+          element={
+            <ProtectedRoute>
+              <AdminProfiles />
             </ProtectedRoute>
           }
         />
