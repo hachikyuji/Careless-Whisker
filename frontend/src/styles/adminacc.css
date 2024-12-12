@@ -7,7 +7,7 @@
     min-height: 100vh;
     gap: 20px;
     align-items: center;
-    background-image: url("../assets/welcome/whitedog.png");
+    background-image: url("../assets/user-pets/user-petsbg.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -189,4 +189,14 @@
 
 .modal-actions button:hover {
     background-color: #add8e6;
+}
+
+.admin-unfinished-no-appointments {
+    text-align: center;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    padding: 20px;
+    border: 1px dashed #fff;
+    max-width: 1000px;
 }

@@ -100,7 +100,7 @@ function AdminUnifinishedAppointments() {
                 setTimeout(() => {
                     setLoading(false);
                     handleFinishedUpdate(selectedPet.id);
-                    navigate("/admin-pets")
+                    window.location.reload();
                 }, 2000)
             } catch (error) {
                 alert("Error updating pet details: " + error.message);
@@ -155,7 +155,7 @@ function AdminUnifinishedAppointments() {
                     </table>
                 </div>
             ) : (
-                <div className="admin-apo-no-appointments">
+                <div className="admin-unfinished-no-appointments">
                     <h2>No Upcoming Services</h2>
                     <p>There are currently no ongoing appointments.</p>
                 </div>
