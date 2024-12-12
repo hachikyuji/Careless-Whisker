@@ -37,8 +37,8 @@ function UpcomingAppointments() {
             )
             alert(response.data.message);
             setTimeout(() =>{
-                navigate("/upcoming-appointments");
-            }, 3000);
+                window.location.reload();
+            }, 1000);
 
 
         } catch (error) {

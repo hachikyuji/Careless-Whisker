@@ -106,7 +106,7 @@ class AdminAccessScheduledServicesView(APIView):
 class UpdateServiceStatusView(APIView):
     permission_classes = [IsAuthenticated]
 
-    def post(self, request, service_id, user_id, action):
+    def post(self, service_id, user_id, action):
         try:
             service = ScheduledServices.objects.get(id=service_id)
             profile = Profile.objects.get(user_id=service.user_id)
@@ -170,7 +170,7 @@ class AdminAccessUpcomingScheduledServicesView(APIView):
     permission_classes = [IsAuthenticated]
     
     def get(self, request):
-        scheduled_services = ScheduledServices.objects.filter(status=True)
+        scheduled_services = ScheduledServices.objects.filter(status=True, finished=False)
         serializer = ScheduleServiceSerializer(scheduled_services, many=True)
         return Response(serializer.data)
 
@@ -402,3 +402,24 @@ class HeaderUserProfileView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         except:
             return Response({"error": "Profile not found"}, status=status.HTTP_404_NOT_FOUND)
+
+class UpdateServiceFinishedView(APIView):
+    permission_classes = [IsAuthenticated]
+    
+    def put(self, request, service_id):
+        try:
+            service = ScheduledServices.objects.get(id=service_id)
+            
+            service.finished = True
+            service.save()
+            
+            Notifications.objects.create(
+                user=service.user,
+                title="Appointment Finished",
+                message=f"Thank you for your patronage!",
+            )
+            return Response({"message" : "Service finished."})
+        
+        except ScheduledServices.DoesNotExist:
+            return Response({"error": "Service not found"}, status=status.HTTP_404_NOT_FOUND)
+            

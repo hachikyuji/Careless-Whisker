@@ -50,6 +50,34 @@ function AdminUnifinishedAppointments() {
         }));
     };
 
+    const handleFinishedUpdate = async (serviceId) => {
+        try {
+            const token = localStorage.getItem("access");
+            console.log("Access token:", token);
+    
+            const response = await axios.put(
+                `http://127.0.0.1:8000/api/update-finished-status/${serviceId}/`,
+                {},
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,  // Ensure Bearer prefix
+                    },
+                }
+            );
+            console.log("Response:", response);
+            alert(response.data.message);
+        } catch (error) {
+            console.error("Error:", error);
+            if (error.response && error.response.status === 401) {
+                alert("Authentication failed. Please log in again.");
+            } else {
+                alert("An error occurred: " + error.message);
+            }
+        }
+    };
+    
+
+
     const handleSubmit = async () => {
         setLoading(true);
 
@@ -71,6 +99,7 @@ function AdminUnifinishedAppointments() {
                 console.log('Response:', response.data);
                 setTimeout(() => {
                     setLoading(false);
+                    handleFinishedUpdate(selectedPet.id);
                     navigate("/admin-pets")
                 }, 2000)
             } catch (error) {

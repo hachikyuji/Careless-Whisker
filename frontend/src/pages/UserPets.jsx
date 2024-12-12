@@ -60,14 +60,14 @@ function UserPets() {
                             />
                         </div>
                         <div className="pet-card-right">
-                            <p>Name: {pet.pet_type}</p>
-                            <p>Breed: {pet.pet_breed}</p>
-                            <p>Sex: {pet.pet_sex}</p>
-                            <p>Age: {pet.pet_age}</p>
-                            <p>Birthday: {pet.pet_birthday}</p>
-                            <p>Condition: {pet.pet_condition}</p>
-                            <p>Health Status: {pet.pet_health}</p>
-                            <p>Weight: {pet.pet_weight}</p>
+                            <p><strong>Type:</strong> {pet.pet_type}</p>
+                            <p><strong>Breed:</strong> {pet.pet_breed}</p>
+                            <p><strong>Sex:</strong> {pet.pet_sex}</p>
+                            <p><strong>Age:</strong> {pet.pet_age}</p>
+                            <p><strong>Birthday:</strong> {pet.pet_birthday}</p>
+                            <p><strong>Condition:</strong> {pet.pet_condition}</p>
+                            <p><strong>Health:</strong> {pet.pet_health}</p>
+                            <p><strong>Weight:</strong> {pet.pet_weight}</p>
                         </div>
                     </div>
                 ))
