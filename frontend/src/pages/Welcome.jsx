@@ -26,7 +26,9 @@ function Welcome() {
             </p>
           </div>
           <div className="sched-btn-div">
-            <button className="schedule-now-btn">Schedule Now</button>
+            <a href="/login">
+              <button className="schedule-now-btn">Schedule Now</button>            
+            </a>
           </div>
         </div>
       </div>
@@ -77,9 +79,6 @@ function Welcome() {
             <div className="bot-services-text">
               <p>Pet Surgery</p>
             </div>
-        </div>
-        <div className="sched-now">
-          <button className="book-now-btn">Schedule Now</button>
         </div>
       </div>
     </div>
