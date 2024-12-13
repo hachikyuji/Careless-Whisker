@@ -12,5 +12,5 @@ endpoints:
     networkVisibilities: 
       - Public
       - Organization
-    schemaFilePath: backend\.choreo\component.yaml
+    schemaFilePath: backend/.choreo/component.yaml
 
