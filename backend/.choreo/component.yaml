@@ -11,5 +11,5 @@ endpoints:
     networkVisibilities: 
       - Public
       - Organization
-    schemaFilePath: openapi.yaml
+    schemaFilePath: .choreo/openapi.yaml
 
