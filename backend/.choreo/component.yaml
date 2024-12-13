@@ -5,12 +5,11 @@ endpoints:
   # +required Unique name for the endpoint.
   # This name will be used when generating the managed API
   - name: "rest-api"
-
     service:
       port: 8000
     type: REST
     networkVisibilities: 
       - Public
       - Organization
-    schemaFilePath: backend/.choreo/component.yaml
+    schemaFilePath: backend/api
 
