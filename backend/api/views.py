@@ -25,7 +25,7 @@ class CreateUserView(generics.CreateAPIView):
     permission_classes = [AllowAny]
     
 class OnboardingStatusView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get(self, request):
         profile = Profile.objects.get(user=request.user)
@@ -33,7 +33,7 @@ class OnboardingStatusView(APIView):
     
 class ProfileUpdateView(generics.RetrieveUpdateAPIView):
     serializer_class = ProfileSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get_object(self):
         return Profile.objects.get(user=self.request.user)
@@ -42,7 +42,7 @@ class ProfileUpdateView(generics.RetrieveUpdateAPIView):
         serializer.save()
         
 class PetRegisterView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def post(self, request):
         serializer = PetsSerializer(data=request.data)
@@ -52,7 +52,7 @@ class PetRegisterView(APIView):
         return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
         
 class UserPetsView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get(self, request):
         user = request.user
@@ -61,7 +61,7 @@ class UserPetsView(APIView):
         return Response(serializer.data)
     
 class ScheduleServicesView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     def post(self, request):
         serializer = ScheduleServiceSerializer(data=request.data)
@@ -71,7 +71,7 @@ class ScheduleServicesView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
      
 class PetNamesView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get(self, request):
         user = request.user
@@ -80,7 +80,7 @@ class PetNamesView(APIView):
         return Response(serializer.data)
     
 class AccessScheduledServicesView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get(self, request):
         user = request.user
@@ -89,14 +89,14 @@ class AccessScheduledServicesView(APIView):
         return Response(serializer.data)
 
 class AccountTypeView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get (self, request):
         profile = Profile.objects.get(user=request.user)
         return Response({'account_type': profile.account_type})
     
 class AdminAccessScheduledServicesView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get(self, request):
         scheduled_services = ScheduledServices.objects.filter(status=False)
@@ -104,7 +104,7 @@ class AdminAccessScheduledServicesView(APIView):
         return Response(serializer.data)
 
 class UpdateServiceStatusView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     def post(self, service_id, user_id, action):
         try:
@@ -158,7 +158,7 @@ class UpdateServiceStatusView(APIView):
             return Response({"error": "Service not found."}, status=status.HTTP_404_NOT_FOUND)
 
 class AccessUpcomingScheduledServicesView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get(self, request):
         user = request.user
@@ -167,7 +167,7 @@ class AccessUpcomingScheduledServicesView(APIView):
         return Response(serializer.data)
 
 class AdminAccessUpcomingScheduledServicesView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get(self, request):
         scheduled_services = ScheduledServices.objects.filter(status=True, finished=False)
@@ -175,7 +175,7 @@ class AdminAccessUpcomingScheduledServicesView(APIView):
         return Response(serializer.data)
 
 class UserProfileView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get(self, request):
         profiles = Profile.objects.all() 
@@ -183,7 +183,7 @@ class UserProfileView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class CancelAppointmentView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def post(self, request, appointment_id):
         try:
@@ -219,7 +219,7 @@ class CancelAppointmentView(APIView):
             return Response({"error": "Appointment not found."}, status=status.HTTP_404_NOT_FOUND)
         
 class AdminNotificationsView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get(self, request):
         try:
@@ -237,7 +237,7 @@ class AdminNotificationsView(APIView):
             return Response({"error": "Profile not found."}, status=status.HTTP_404_NOT_FOUND)
 
 class UpdateAdminNotificationsView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def patch (self, request):
         try:
@@ -266,7 +266,7 @@ class UpdateAdminNotificationsView(APIView):
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
 class UserNotificationView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get(self, request):
         notifications = Notifications.objects.filter(user_id=request.user, read=False, notif_type__isnull=True,).order_by("-created_at")
@@ -276,7 +276,7 @@ class UserNotificationView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
     
 class UpdateUserNotificationsView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def patch(self, request):
         try:
@@ -305,7 +305,7 @@ class UpdateUserNotificationsView(APIView):
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class AccessUnfinishedSchedulesView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get(self, request):
         try:
@@ -317,7 +317,7 @@ class AccessUnfinishedSchedulesView(APIView):
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
 class UpdatePetDetailsView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     def put(self, request, pet_name):
         logging.debug(f"Request data: {request.data}")
@@ -342,7 +342,7 @@ class UpdatePetDetailsView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 class AdminAccessRegisteredPetsView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get(self, request):
         try:
@@ -353,7 +353,7 @@ class AdminAccessRegisteredPetsView(APIView):
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
 class AdminAccessUserProfilesView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get(self):
         try:
@@ -364,7 +364,7 @@ class AdminAccessUserProfilesView(APIView):
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
             
 class AdminUpdateRegisteredPestView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def put(self, request, pet_name):
         pet = Pets.objects.get(pet_name=pet_name)
@@ -378,7 +378,7 @@ class AdminUpdateRegisteredPestView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class AdminUpdateProfileView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def put(self, request, first_name):
         profile = Profile.objects.get(first_name=first_name)
@@ -392,7 +392,7 @@ class AdminUpdateProfileView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 class HeaderUserProfileView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get(self, request):
         user = request.user
@@ -404,7 +404,7 @@ class HeaderUserProfileView(APIView):
             return Response({"error": "Profile not found"}, status=status.HTTP_404_NOT_FOUND)
 
 class UpdateServiceFinishedView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def put(self, request, service_id):
         try:
