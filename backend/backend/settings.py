@@ -14,6 +14,7 @@ from pathlib import Path
 from datetime import timedelta
 from dotenv import load_dotenv
 import os
+import dj_database_url
 
 load_dotenv()
 
@@ -28,9 +29,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-mgngze-w6jsnrb98g@3+o&ovnu0xeg$oj@(_&(9athxk4bacas'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "False") == "true"
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -58,7 +59,6 @@ INSTALLED_APPS = [
     "api",
     "rest_framework",
     "corsheaders",
-    'channels',
 ]
 
 MIDDLEWARE = [
@@ -107,6 +107,9 @@ DATABASES = {
     }
 }
 
+database_url = os.environ.get("DATABASE_URL")
+
+DATABASES['default'] = dj_database_url.parse(database_url)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
