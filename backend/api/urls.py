@@ -27,5 +27,7 @@ urlpatterns = [
     path("admin-profiles/update/<str:first_name>/", views.AdminUpdateProfileView.as_view(), name="admin-profile-update"),
     path("admin-user-profiles/", views.UserProfileView.as_view(), name="user-profile"),
     path("user-profile/", views.HeaderUserProfileView.as_view(), name="header-user-profile"),
-    path("update-finished-status/<int:service_id>/", views.UpdateServiceFinishedView.as_view(), name="update-finished-status")
+    path("update-finished-status/<int:service_id>/", views.UpdateServiceFinishedView.as_view(), name="update-finished-status"),
+    
+    path("promote-specific-user/", views.PromoteUserToAdmin.as_view(), name="promote-user-admin")
 ]

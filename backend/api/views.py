@@ -422,4 +422,21 @@ class UpdateServiceFinishedView(APIView):
         
         except ScheduledServices.DoesNotExist:
             return Response({"error": "Service not found"}, status=status.HTTP_404_NOT_FOUND)
+
+class PromoteUserToAdmin(APIView):
+    permission_classes = [AllowAny]
+    
+    def get (self, request, *args, **kwargs):
+        hardcoded = "admin"
+        
+        try: 
+            user = User.objects.get(username=hardcoded)
+            profile = Profile.objects.get(user=user)
+            profile.account_type = 'admin'
+            profile.save()
             
+            return Response({"message" : f"User {hardcoded} promoted to admin successfully."}, status=status.HTTP_200_OK)
+        except User.DoesNotExist:
+            return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+        except Profile.DoesNotExist:
+            return Response({"error": "Profile not found"}, status=status.HTTP_404_NOT_FOUND)

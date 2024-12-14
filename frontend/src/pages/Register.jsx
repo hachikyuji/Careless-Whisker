@@ -44,7 +44,7 @@ function Register() {
         <div className="login-content">
           <div className="login-left">
             <div className="left-image-text">
-              <p>Lorem ipsum dolor sit amet, </p>
+              <p>Your Pet’s Well-being Starts Here</p>
             </div>
           </div>
 
@@ -54,7 +54,6 @@ function Register() {
               <img className="logo-top" src={logoImg} alt="Logo" />
             </div>
 
-            {/* Implement the form directly here */}
             <form onSubmit={handleSubmit} className="login-form">
               <div className="input-field">
                 <label htmlFor="username">Username</label>
