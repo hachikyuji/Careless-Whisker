@@ -152,6 +152,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWS_CREDENTIALS = True
 
+CORS_ALLOWED_ORIGINS = [
+    "https://b87a0262-0792-4d40-aba8-85d356547024.e1-us-cdp-2.choreoapps.dev",
+]
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
